@@ -7,6 +7,7 @@ Contains 3 steps.
 1. Samtools step to subset the bam file based on a fusion bed file such as in the resources folder of the `samtools_sv` app
 <br>
 Example
+</br>
 ```bash
 $ head apps/samtools_sv/resources/fusion_genes.bed
 chr1    2228694 2310119
