@@ -1,0 +1,145 @@
+{
+  "name": "wgs_manta_fusion",
+  "title": "wgs_manta_fusion",
+  "summary": "Takes .",
+  "dxapi": "1.0.0",
+  "inputSpec": [
+    {
+      "name": "perl_exe",
+      "label": "WashU perl script",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.cram"],
+      "optional": false,
+      "default": {
+        "$dnanexus_link": {
+          "project": "project-G8YxJ2QJP6z69ZVVFVfBYyPB",
+          "id": "file-GPkz9VQJP6z55qvjPPxXZFX7"
+        }
+      }
+    },
+    {
+      "name": "translocations",
+      "label": "Input translocations in correct format",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.txt"],
+      "optional": false,
+      "default": {
+        "$dnanexus_link": {
+          "project": "project-G8YxJ2QJP6z69ZVVFVfBYyPB",
+          "id": "file-GPkzG78JP6zFQb0J3vF99191"
+        }
+      }
+    },
+    {
+      "name": "genes_to_remove",
+      "label": "genes_to_remove",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.cram.crai", "*.crai"],
+      "optional": false,
+      "default": {
+        "$dnanexus_link": {
+          "project": "project-G8YxJ2QJP6z69ZVVFVfBYyPB",
+          "id": "file-GPkzGj8JP6z1zGKxz8VqQ37p"
+        }
+      }
+    },
+    {
+      "name": "candidateSV_vcf",
+      "label": "candidate SVs from previous manta workflow",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.vcf.gz"],
+      "optional": false
+    },
+    {
+      "name": "candidateSV_idx",
+      "label": "candidateSV_vcf index",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.vcf.gz.tbi"],
+      "optional": false
+    },
+    {
+      "name": "subset_filtered_bam",
+      "label": "Bam subset for input genes from samtools_sv tool",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.bam"],
+      "optional": false
+    },
+    {
+      "name": "subset_filtered_bai",
+      "label": "subset_filtered_bam index",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.bam.bai", "*.bai"],
+      "optional": false
+    },
+    {
+      "name": "Results",
+      "label": "name of results file",
+      "help": "",
+      "class": "string",
+      "optional": false
+    },
+    {
+      "name": "Background",
+      "label": "name of background file",
+      "help": "",
+      "class": "string",
+      "optional": false
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "results",
+      "label": "Fusion results",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.txt"]
+    },
+    {
+      "name": "background",
+      "label": "background compare",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.txt"]
+    }
+  ],
+  "runSpec": {
+    "interpreter": "bash",
+    "timeoutPolicy": {
+      "*": {
+        "hours": 4
+      }
+    },
+    "headJobOnDemand": false,
+    "execDepends": [
+      {
+        "name": "samtools"
+      }
+    ],
+    "distribution": "Ubuntu",
+    "release": "20.04",
+    "version": "0",
+    "file": "src/code.sh"
+  },
+  "access": {
+    "network": [
+      "*"
+    ]
+  },
+  "ignoreReuse": false,
+  "regionalOptions": {
+    "aws:eu-west-2": {
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem2_ssd1_v2_x8"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "name": "samtools_sv",
+  "title": "samtools_sv",
+  "summary": "samtools_sv",
+  "dxapi": "1.0.0",
+  "inputSpec": [
+    {
+      "name": "reference",
+      "label": "reference assembly fasta",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.fa", "*.fasta"],
+      "optional": false
+    },
+    {
+      "name": "reference_fai",
+      "label": "reference assembly index",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.fai"],
+      "optional": false
+    },
+    {
+      "name": "cram",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.cram"],
+      "optional": false
+    },
+    {
+      "name": "cram_index",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.crai", "*.cram.crai"],
+      "optional": false
+    },
+    {
+      "name": "fusion_sites",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.bed"],
+      "optional": false,
+      "default": {
+        "$dnanexus_link": {
+          "project": "project-G8YxJ2QJP6z69ZVVFVfBYyPB",
+          "id": "file-G9623K0JP6z4KV18BjjVp57j"
+        }
+      }
+    },
+    {
+      "name": "dockerimage_samtools_sv",
+      "help": "",
+      "class": "file",
+      "optional": true,
+      "default": {
+        "$dnanexus_link": {
+          "project": "project-G8YxJ2QJP6z69ZVVFVfBYyPB",
+          "id": "file-G940gbQJP6z0Kbk95578x9qf"
+        }
+      }
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "subset_bam",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.bam"]
+    },
+    {
+      "name": "subset_bam_bai",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.bai", "*.bam.bai"]
+    },
+    {
+      "name": "subset_filtered_bam",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.bam"]
+    },
+    {
+      "name": "subset_filtered_bam_bai",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.bai", "*.bam.bai"]
+    },
+    {
+      "name": "flagstat",
+      "help": "",
+      "class": "file",
+      "patterns": ["*"]
+    },
+    {
+      "name": "readlength",
+      "help": "",
+      "class": "file",
+      "patterns": ["*"]
+    }
+  ],
+  "runSpec": {
+    "interpreter": "bash",
+    "timeoutPolicy": {
+      "*": {
+        "hours": 2
+      }
+    },
+    "distribution": "Ubuntu",
+    "release": "20.04",
+    "version": "0",
+    "file": "src/code.sh"
+  },
+  "access": {
+    "project": "CONTRIBUTE",
+    "allProjects": "VIEW"
+  },
+  "ignoreReuse": false,
+  "regionalOptions": {
+    "aws:eu-west-2": {
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem3_ssd1_v2_x4"
+        }
+      }
+    }
+  }
+}

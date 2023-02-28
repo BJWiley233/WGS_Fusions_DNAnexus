@@ -1,0 +1,93 @@
+{
+  "name": "manta_sv_wf_full",
+  "title": "manta_sv_wf_full",
+  "stages": [
+    {
+      "id": "stage-G9621j0JP6z47zQK8yqg33kG",
+      "executable": "applet-G94Q928JP6z02xqZPpJ48VzZ",
+      "input": {
+        "reference": {
+          "$dnanexus_link": {
+            "project": "project-G3Yj1vjJ6XG579jbKyjXPGGY",
+            "id": "file-G3jKk3QJ6XG9KY8680qg9j8b"
+          }
+        },
+        "reference_fai": {
+          "$dnanexus_link": {
+            "project": "project-G3Yj1vjJ6XG579jbKyjXPGGY",
+            "id": "file-G3jKq0jJ6XGFqZ6Z9q4gB1yg"
+          }
+        },
+        "fusion_sites": {
+          "$dnanexus_link": "file-G9623K0JP6z4KV18BjjVp57j"
+        }
+      }
+    },
+    {
+      "id": "stage-G9627p8JP6z0fGF4JxqPj74z",
+      "executable": "applet-G9627bjJP6z8P2q6P4fxxZFb",
+      "input": {
+        "bam": {
+          "$dnanexus_link": {
+            "stage": "stage-G9621j0JP6z47zQK8yqg33kG",
+            "outputField": "subset_filtered_bam"
+          }
+        },
+        "reference_dict": {
+          "$dnanexus_link": {
+            "project": "project-G3Yj1vjJ6XG579jbKyjXPGGY",
+            "id": "file-G3zKypQJ6XG24V7Y6YQj0PFB"
+          }
+        },
+        "bam_index": {
+          "$dnanexus_link": {
+            "stage": "stage-G9621j0JP6z47zQK8yqg33kG",
+            "outputField": "subset_filtered_bam_bai"
+          }
+        },
+        "reference": {
+          "$dnanexus_link": {
+            "project": "project-G3Yj1vjJ6XG579jbKyjXPGGY",
+            "id": "file-G3jKk3QJ6XG9KY8680qg9j8b"
+          }
+        },
+        "reference_fai": {
+          "$dnanexus_link": {
+            "project": "project-G3Yj1vjJ6XG579jbKyjXPGGY",
+            "id": "file-G3jKq0jJ6XGFqZ6Z9q4gB1yg"
+          }
+        }
+      }
+    },
+    {
+      "id": "stage-GPkzZj8JP6zF1Z9Y67qVvgf2",
+      "executable": "applet-GPkzYbjJP6z0vp3p61Z1y8pV",
+      "input": {
+        "candidateSV_vcf": {
+          "$dnanexus_link": {
+            "stage": "stage-G9627p8JP6z0fGF4JxqPj74z",
+            "outputField": "all_candidates"
+          }
+        },
+        "candidateSV_idx": {
+          "$dnanexus_link": {
+            "stage": "stage-G9627p8JP6z0fGF4JxqPj74z",
+            "outputField": "all_candidates_tbi"
+          }
+        },
+        "subset_filtered_bam": {
+          "$dnanexus_link": {
+            "stage": "stage-G9621j0JP6z47zQK8yqg33kG",
+            "outputField": "subset_filtered_bam"
+          }
+        },
+        "subset_filtered_bai": {
+          "$dnanexus_link": {
+            "stage": "stage-G9621j0JP6z47zQK8yqg33kG",
+            "outputField": "subset_filtered_bam_bai"
+          }
+        }
+      }
+    }
+  ]
+}

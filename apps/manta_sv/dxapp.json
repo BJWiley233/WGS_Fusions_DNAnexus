@@ -1,0 +1,149 @@
+{
+  "name": "manta_sv",
+  "title": "manta_sv",
+  "summary": "manta_sv",
+  "dxapi": "1.0.0",
+  "inputSpec": [
+    {
+      "name": "reference",
+      "label": "reference assembly fasta",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.fa", "*.fasta"],
+      "optional": false
+    },
+    {
+      "name": "reference_fai",
+      "label": "reference assembly index",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.fai"],
+      "optional": false
+    },
+    {
+      "name": "reference_dict",
+      "label": "reference assembly dict",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.dict"],
+      "optional": false
+    },
+    {
+      "name": "bam",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.bam"],
+      "optional": false
+    },
+    {
+      "name": "bam_index",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.bai", "*.bam.bai"],
+      "optional": false
+    },
+    {
+      "name": "manta_config",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.ini"],
+      "optional": false,
+      "default": {
+        "$dnanexus_link": {
+          "project": "project-G8YxJ2QJP6z69ZVVFVfBYyPB",
+          "id": "file-G94QXQQJP6z9pp359Zx0Z38j"
+        }
+      }
+    },
+    {
+      "name": "dockerimage_manta_sv",
+      "help": "",
+      "class": "file",
+      "optional": true,
+      "default": {
+        "$dnanexus_link": {
+          "project": "project-G8YxJ2QJP6z69ZVVFVfBYyPB",
+          "id": "file-G940gk0JP6zFP2B7BkFbkvXb"
+        }
+      }
+    },
+    {
+      "name": "non_wgs",
+      "help": "",
+      "class": "string",
+      "optional": true,
+      "default": "false"
+    },
+    {
+      "name": "manta_output_contigs",
+      "help": "",
+      "class": "string",
+      "optional": true,
+      "default": "true"
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "all_candidates",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.vcf.gz"]
+    },
+    {
+      "name": "all_candidates_tbi",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.vcf.gz.tbi"]
+    },
+    {
+      "name": "small_candidates",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.vcf.gz"]
+    },
+    {
+      "name": "small_candidates_tbi",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.vcf.gz.tbi"]
+    },
+    {
+      "name": "tumor_only_variants",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.vcf.gz"]
+    },
+    {
+      "name": "tumor_only_variants_tbi",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.vcf.gz.tbi"]
+    }
+  ],
+  "runSpec": {
+    "interpreter": "bash",
+    "timeoutPolicy": {
+      "*": {
+        "hours": 2
+      }
+    },
+    "distribution": "Ubuntu",
+    "release": "20.04",
+    "version": "0",
+    "file": "src/code.sh"
+  },
+  "access": {
+    "project": "CONTRIBUTE",
+    "allProjects": "VIEW"
+  },
+  "ignoreReuse": false,
+  "regionalOptions": {
+    "aws:eu-west-2": {
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem3_ssd1_v2_x4"
+        }
+      }
+    }
+  }
+}
