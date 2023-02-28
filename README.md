@@ -5,6 +5,7 @@ Can detect fusions from low depth WGS data using manta and scripts from Washingt
 Contains 3 steps.
 
 1. Samtools step to subset the bam file based on a fusion bed file such as in the resources folder of the `samtools_sv` app
+<br>
 Example
 ```bash
 $ head apps/samtools_sv/resources/fusion_genes.bed
@@ -26,6 +27,7 @@ chr1    26693236        26782110
 
 3. Update the perl execution script from WashU in the `wgs_manta_fusion` app `dxapp.json` file.  The script is located in apps/wgs_manta_fusion/resources.
 Make sure to upload the `translocations` and `genes_to_remove` file also located apps/wgs_manta_fusion/resources. Must upload and edit in dxapp.json else you can use after resources is untarred to the DNAnexus instance.
+<br>
 Example of translocations
 ```bash
 $ head apps/wgs_manta_fusion/resources/chromoseq_translocations.withoutselfgenes_plus_solid_tumor.txt
