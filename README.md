@@ -1,5 +1,7 @@
 # WGS_Fusions_DNAnexus
 
+Can detect fusions from low depth WGS data.  Written for DNAnexus as a workflow.
+
 Contains 3 steps.
 
 1. Samtools step to subset the bam file based on a fusion bed file such as in the resources folder of the `samtools_sv` app
@@ -20,6 +22,9 @@ chr1    26693236        26782110
 
 2. 
 
+3. Update the perl execution script from WashU in the `wgs_manta_fusion` app `dxapp.json` file.  The script is located in apps/wgs_manta_fusion/resources.
+Make sure to upload the `translocations` and `genes_to_remove` file also located apps/wgs_manta_fusion/resources.
 
 
-### Docker Images required are upload as tar files in the `dockers` folder and can be unloaded.  Just change the `$dnanexus_link` in the `dxapp.json` files for upload tar files to DNAnexus
+
+#### Docker Images required are upload as tar files in the `dockers` folder and can be unloaded.  Just change the `$dnanexus_link` in the `dxapp.json` files for upload tar files to DNAnexus
