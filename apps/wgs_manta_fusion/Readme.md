@@ -1,7 +1,6 @@
 <!-- dx-header -->
-# CRAM2BAM (DNAnexus Platform App)
+# Fusion calling (DNAnexus Platform App)
 
-Converts cram file to bam file and indexes the bam.
 
 This is the source code for an app that runs on the DNAnexus Platform.
 For more information about how to run or modify it, see
