@@ -2,7 +2,7 @@
 
 Can detect fusions from low depth WGS data using manta and scripts from Washington University in St. Louis.  Written for DNAnexus as a workflow.
 
-
+<br>
 
 Contains 3 steps.
 
