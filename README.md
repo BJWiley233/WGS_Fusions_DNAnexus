@@ -48,4 +48,4 @@ chr2	54456316	54671445	chr5	150113836	150155860	SPTBN1_PDGFRB	.	+	-
 
 #### Docker Images required are upload as tar files in the `dockers` folder and can be unloaded.  Just change the `$dnanexus_link` in the `dxapp.json` files for upload tar files to DNAnexus
 
-#### Most steps require a reference, reference index, and reference dictionary to be upload to DNAnexus and added to the inputs of the applet.
+#### Most steps require a reference, reference index, and reference dictionary to be upload to DNAnexus and added to the inputs of the applet's `dxapp.json` file.
