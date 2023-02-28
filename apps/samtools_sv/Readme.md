@@ -1,7 +1,7 @@
 <!-- dx-header -->
-# Mutect2 Scatter intervals (DNAnexus Platform App)
+# Samtools (DNAnexus Platform App)
 
-Run GATK Mutect2 and FilterMutectCalls
+
 
 This is the source code for an app that runs on the DNAnexus Platform.
 For more information about how to run or modify it, see
