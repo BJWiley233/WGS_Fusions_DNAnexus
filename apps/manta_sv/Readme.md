@@ -1,5 +1,5 @@
 <!-- dx-header -->
-# Mutect2 Scatter intervals (DNAnexus Platform App)
+# Manta (DNAnexus Platform App)
 
 Run GATK Mutect2 and FilterMutectCalls
 
