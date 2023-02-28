@@ -2,8 +2,9 @@
 
 Can detect fusions from low depth WGS data using manta and scripts from Washington University in St. Louis.  Written for DNAnexus as a workflow.
 
-Contains 3 steps.
 
+
+Contains 3 steps.
 
 1. Samtools step to subset the bam file based on a fusion bed file such as in the resources folder of the `samtools_sv` app
 
